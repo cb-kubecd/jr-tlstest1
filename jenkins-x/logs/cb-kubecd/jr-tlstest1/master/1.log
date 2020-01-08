@@ -1,0 +1,87 @@
+
+Showing logs for build [32mcb-kubecd-jr-tlstest1-master-9h8k6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-q7m8s[0m
+{"level":"warn","ts":1578517559.162527,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1578517559.1629963,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcb-kubecd-jr-tlstest1-master-9h8k6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-mn86n[0m
+{"level":"warn","ts":1578517559.8870966,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1578517559.8894238,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mcb-kubecd-jr-tlstest1-master-9h8k6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcb-kubecd-jr-tlstest1-master-9h8k6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-cb-kubecd-jr-tlstest1-master-ffv7b[0m
+{"level":"warn","ts":1578517574.1106782,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1578517575.3892567,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/cb-kubecd/jr-tlstest1.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mcb-kubecd-jr-tlstest1-master-9h8k6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:4f99928cb78901f4e3091aff3007cee4876fdf66
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mcb-kubecd-jr-tlstest1-master-9h8k6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mcb-kubecd-jr-tlstest1-master-9h8k6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-build[0m
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/jr-tlstest1 main.go
+
+Showing logs for build [32mcb-kubecd-jr-tlstest1-master-9h8k6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/jr-tlstest1"]                  
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2020/01/08 21:06:33 pushed blob: sha256:f92d15b3de948c1c2bd81b4f27b9faf6ed7879063c178e06a13b8826d8c3629a
+2020/01/08 21:06:33 pushed blob: sha256:f46b3840b955b43326a61298c7f840063269e3ee5ed4acade073cce0395dd6af
+2020/01/08 21:06:35 gcr.io/**-development/jr-tlstest1:0.0.1: digest: sha256:c2a07fed2b9082d8be14f30f20c6fbdaaf380f035eb31d5ce13ca57ff798d17f size: 428
+
+Showing logs for build [32mcb-kubecd-jr-tlstest1-master-9h8k6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mcb-kubecd-jr-tlstest1-master-9h8k6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/jr-tlstest1 to an unshallow repository
+Generating change log from git ref a354f9b057c81d204b89fc2c9b3594e34fe95841 => 9b579d7d4a15ab3cd538d7fc3451ba8ca85707a2
+Associating user x-0 in users.jenkins.io with email rawlingsj80@gmail.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 4f99928cb78901f4e3091aff3007cee4876fdf66 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Finding issues in commit messages using git format
+WARNING: No release found for cb-kubecd/jr-tlstest1 and tag v0.0.1 so creating a new release
+Updated the release information at https://github.com/cb-kubecd/jr-tlstest1/releases/tag/v0.0.1
+generated: /workspace/source/charts/jr-tlstest1/templates/release.yaml
+Created Release jr-tlstest1-0-0-1 resource in namespace **
+Updating PipelineActivity cb-kubecd-jr-tlstest1-master-1 with version 0.0.1
+Updated PipelineActivities cb-kubecd-jr-tlstest1-master-1 with release notes URL: https://github.com/cb-kubecd/jr-tlstest1/releases/tag/v0.0.1
+
+Showing logs for build [32mcb-kubecd-jr-tlstest1-master-9h8k6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file jr-tlstest1-0.0.1.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32mcb-kubecd-jr-tlstest1-master-9h8k6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Promoting app jr-tlstest1 version 0.0.1 to namespace **-staging
+WARNING: Waiting for the fork of ******************/environment-neckflower-staging to appear...
+Forked Git repository to https://github.com/******************/environment-neckflower-staging
+Created Pull Request: https://github.com/cb-kubecd/environment-neckflower-staging/pull/1
+Added label updatebot to Pull Request https://github.com/cb-kubecd/environment-neckflower-staging/pull/1
+got git provider status pending from PR https://github.com/cb-kubecd/environment-neckflower-staging/pull/1
+got git provider status pending from PR https://github.com/cb-kubecd/environment-neckflower-staging/pull/1
+got git provider status pending from PR https://github.com/cb-kubecd/environment-neckflower-staging/pull/1
+got git provider status pending from PR https://github.com/cb-kubecd/environment-neckflower-staging/pull/1
+Pull Request https://github.com/cb-kubecd/environment-neckflower-staging/pull/1 is merged at sha 16384477153b20e1ef4bdd0308f694927fe169a9
+Pull Request merged but we are not waiting for the update pipeline to complete!
+WARNING: Could not find the service URL in namespace **-staging for names jr-tlstest1, **-jr-tlstest1, **-staging-jr-tlstest1
